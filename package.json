@@ -1,43 +1,43 @@
 {
   "name": "budget-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A progressive web application with online as well as offline functionality for budget tracking",
   "main": "server.js",
-"scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "npm run build && node server.js",
-    "start:dev": "concurrently \"npm run server\" \"cd client && npm run start\"",
-    "server": "nodemon server.js --ignore client",
-    "install": "cd client && npm install",
-    "client": "cd client && npm start"
-    
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "webpack": "webpack",
+    "start": "node server.js",
+    "dev": "webpack-dev-server --hot --inline",
+    "lite-server": "lite-server",
+    "watch": "nodemon server.js"
   },
-
-
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coding-boot-camp/unit18hw.git"
+    "url": "git+https://github.com/connietran-dev/offline-budget-PWA"
   },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/coding-boot-camp/unit18hw/issues"
-  },
-  "homepage": "https://github.com/coding-boot-camp/unit18hw#readme",
+  "license": "",
+  "homepage": "",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "lite-server": "^2.5.3",
-    "mongoose": "^5.5.15",
+    "mongoose": "^5.9.23",
     "morgan": "^1.9.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "@babel/preset-env": "^7.12.11",
-    "babel-loader": "^8.2.2",
-    "nodemon": "^2.0.7",
-    "webpack": "^5.17.0",
-    "webpack-cli": "^4.4.0",
-    "webpack-pwa-manifest": "^4.3.0"
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
+    "minimist": "^1.2.5",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-pwa-manifest": "^4.2.0"
+  },
+  "resolutions": {
+    "minimist": "^1.2.5"
   }
 }
