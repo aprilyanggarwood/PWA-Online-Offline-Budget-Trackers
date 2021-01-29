@@ -25,40 +25,40 @@ self.addEventListener("install", function (evt) {
 });
 
 // activate
-// self.addEventListener("activate", function (evt) {
-//   evt.waitUntil(
-//     caches.keys().then((keyList) => {
-//       return Promise.all(
-//         keyList.map((key) => {
-//           if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
-//             console.log("Removing old cache data", key);
-//             return caches.delete(key);
-//           }
-//         })
-//       );
-//     })
-//   );
-
-//   self.clients.claim();
-// });
-
-self.addEventListener("activate", function (event) {
-  event.waitUntil(
-    caches.keys().then(function (cacheNames) {
+self.addEventListener("activate", function (evt) {
+  evt.waitUntil(
+    caches.keys().then((keyList) => {
       return Promise.all(
-        cacheNames
-          .filter(function (cacheName) {
-            // Return true if you want to remove this cache,
-            // but remember that caches are shared across
-            // the whole origin
-          })
-          .map(function (cacheName) {
-            return caches.delete(cacheName);
-          })
+        keyList.map((key) => {
+          if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
+            console.log("Removing old cache data", key);
+            return caches.delete(key);
+          }
+        })
       );
     })
   );
+
+  self.clients.claim();
 });
+
+// self.addEventListener("activate", function (event) {
+//   event.waitUntil(
+//     caches.keys().then(function (cacheNames) {
+//       return Promise.all(
+//         cacheNames
+//           .filter(function (cacheName) {
+// Return true if you want to remove this cache,
+// but remember that caches are shared across
+// the whole origin
+//           })
+//           .map(function (cacheName) {
+//             return caches.delete(cacheName);
+//           })
+//       );
+//     })
+//   );
+// });
 
 // fetch
 self.addEventListener("fetch", function (evt) {
