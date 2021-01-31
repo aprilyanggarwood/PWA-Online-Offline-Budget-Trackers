@@ -1,63 +1,55 @@
-# Unit 18 PWA Homework: Online/Offline Budget Trackers
+# PWA Online/Offline Budget Tracker
 
-Add functionality to our existing Budget Tracker application to allow for offline access and functionality.
+## Description
 
-The user will be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
+This budget tracker application allows users to be able to add expenses and deposits to their budget with or without a connection. When entering transactions offline, they should populate the total when brought back online.
 
-Offline Functionality:
+## Table of Contents
 
-  * Enter deposits offline
+- [Built With](#Built-With)
+- [Useage](#Useage)
+- [Business Context](#Business-Context)
+- [Demo](#demo)
+- [Deploy](#Deploy) - [Heroku](https://radiant-plains-26555.herokuapp.com/)
+- [License](#license)
+- [Questions](#questions)
 
-  * Enter expenses offline
+## Built With
 
-When brought back online:
+- IndexedDB: Offline transaction storage
+- Cache Storage: Online transaction storage
+- Webpack: Module bundling and minification
+- Wepback-pwa-manifest: Webpack plug-in for generating manfiest.webmanifest for PWA (npm package)
+- MongoDB: Persistent database storage
+- Mongoose: ODM modeling
+- Express: Middleware routing
+- NodeJS: Javascript runtime environment
+- Heroku: Hosting
 
-  * Offline entries should be added to tracker.
+## Usage
 
-## User Story
-AS AN avid traveller
-I WANT to be able to track my withdrawals and deposits with or without a data/internet connection
-SO THAT my account balance is accurate when I am traveling
+- When your web browser is online, please add transaction’s name and amount into the form, and click the Add Funds button or the Subtract Funds button to create a withdrawal or deposit transaction. The transaction data will be cached in `Cache Storage` (`data-cache-v1`) frontend, and also will be stored in `MongoDB` backend.
+
+- When your web browser is offline, the application is unable to create the withdrawal or deposit transaction in the `MongoDB` backend, it will make a request to `IndexedDB` to store the transaction data in the `pending` object store. When the application comes back online, the data in `IndexedDB` will be cached in `Cache Storage` (data-cache-v1) and will be written to `MongoDB` to be rendered in the `UI` again.
+
+- This application is also be designed as a progressive web application (`PWA`). It can be installed through your web browser or mobile. Here is the screenshot of install function in the web browser as below:
 
 ## Business Context
 
 Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
 
+## Demo
 
-## Acceptance Criteria
-GIVEN a user is on Budget App without an internet connection
-WHEN the user inputs a withdrawal or deposit
-THEN that will be shown on the page, and added to their transaction history when their connection is back online.
+![DemoLink](./public/image/PWA-Online-Offline-Budget-Tracker.gif)
 
-- - -
+## Deploy
 
-## Commit Early and Often
+This PWA Online/Offline Budget Tracker is deployed on [Heroku](https://radiant-plains-26555.herokuapp.com/).
 
-* One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
+## License
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
+## Questions
 
-* Follow these guidelines for committing:
-
-  * Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
-
-  * Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
-
-  * Don't commit half done work, for the sake of your collaborators (and your future self!)
-
-  * Test your application before you commit to ensure functionality at every step in the development process
-
-* We would like you to have well over 200 commits by graduation, so commit early and often!
-
-* Deploy your application with [Heroku and MongoDB Atlas.](../04-Important/MongoAtlas-Deploy.md)
-
-## Submission on BCS
-
-* You are required to submit the following:
-
-  * the URL to the deployed application
-
-  * the URL to the Github repository
-
+If you have any questions about this application, please feel free to reach me via the link of my [GitHub](https://github.com/aprilyanggarwood) and my Email: <aprilyanggarwood@gmail.com>
