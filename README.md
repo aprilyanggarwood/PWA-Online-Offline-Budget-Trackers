@@ -34,6 +34,8 @@ This budget tracker application allows users to be able to add expenses and depo
 
 - This application is also be designed as a progressive web application (`PWA`). It can be installed through your web browser or mobile. Here is the screenshot of install function in the web browser as below:
 
+  ![PWA-screenshot](./public/image/PWA-screenshot.png)
+
 ## Business Context
 
 Giving users a fast and easy way to track their money is important, but allowing them to access that information anytime is even more important. Having offline functionality is paramount to our applications success.
